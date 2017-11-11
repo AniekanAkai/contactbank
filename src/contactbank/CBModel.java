@@ -103,5 +103,6 @@ public class CBModel {
     public void refresh() throws IOException{
         //Refreshes table with new latest contact list
         cbv.setNewTableModel(currentContacts);
+   
     }
 }

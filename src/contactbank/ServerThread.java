@@ -30,9 +30,7 @@ public class ServerThread extends Thread {
             dbController = new DbControl();
             dbController.connect();
             try {
-                stmt = dbController.con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
-                        ResultSet.CONCUR_UPDATABLE);
-
+                stmt = dbController.con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
             } catch (SQLException ex) {
                 System.err.println("Problem making Statement object");
                 ex.printStackTrace();

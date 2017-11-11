@@ -53,11 +53,12 @@ class ContactBankView extends JFrame {
         searchField = new JTextField("Enter key....");
         searchField.setEditable(true);
         searchField.setSize(50, 50);
-        Image img = ImageIO.read(getClass().getResource("Search-icon.png"));        
+//        Image img = ImageIO.read(getClass().getResource("Search-icon.png"));        
         searchButton = new JButton();
-        Image newimg = img.getScaledInstance(10, 10, java.awt.Image.SCALE_SMOOTH);
-        ImageIcon icon = new ImageIcon(newimg);
-        searchButton.setIcon(icon); 
+//        Image newimg = img.getScaledInstance(10, 10, java.awt.Image.SCALE_SMOOTH);
+//        ImageIcon icon = new ImageIcon(newimg);
+//        searchButton.setIcon(icon); 
+        searchButton.setToolTipText("Find a contact");
         searchButton.setSize(5, 5);
         searchButton.setActionCommand("Search");
         changeViewButton = new JButton("Toggle View");
@@ -143,12 +144,14 @@ class ContactBankView extends JFrame {
     }
     
     public void setNewTableModel(ArrayList<Contact> c){
-        mtm = new MyTableModel(c);
+    	cbFrame.getContentPane().remove(contactListPane);
+    	mtm = new MyTableModel(c);
         contactTable = new JTable(mtm);
         contactTable.setPreferredScrollableViewportSize(new Dimension(500, 70));
         contactTable.setFillsViewportHeight(true);       
         contactListPane = new JScrollPane(contactTable);
         cbFrame.getContentPane().add(contactListPane, BorderLayout.CENTER);
+        
         cbFrame.pack();
     }
     

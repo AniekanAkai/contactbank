@@ -15,7 +15,7 @@ public class ContactBankApp {
     public ContactBankApp(){        
          try {
                 System.out.println("Connecting to server...");
-                //Requesting connection to server at port 4444 
+                //Requesting connection to server at port 4444
                 socket = new Socket("localhost", 4444);
                 //Used to write to the socket
                 out = new PrintWriter(socket.getOutputStream(), true);
@@ -32,10 +32,10 @@ public class ContactBankApp {
                    System.out.println("Socket Connection successful. Wait for client request");
                 }
                 
-              } catch(Exception e) {
-                System.out.print("Whoops! It didn't work!\n");
-                e.printStackTrace();
-              }  
+          } catch(Exception e) {
+            System.out.print("Whoops! It didn't work!\n");
+            e.printStackTrace();
+          }  
     }
         
         
@@ -56,7 +56,6 @@ public class ContactBankApp {
         ContactBankApp cba = new ContactBankApp();
         //Start the controller which request all contacts list
         //List is received by Model which calls the UI(view) and updates the view
-        CBController cbc;
-        cbc = new CBController(cba); 
+        CBController cbc = new CBController(cba); 
     }
 }
